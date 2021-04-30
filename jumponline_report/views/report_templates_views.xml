@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Boxed layout template-->
+    <template id="boxed_external_layout_inherited" inherit_id="web.external_layout_boxed">
+        <!-- Boxed Layout Header -->
+        <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
+            <attribute name="t-if">not company.secondary_layout</attribute>
+        </div>
+
+        <div t-attf-class="header o_company_#{company.id}_layout" position="after">
+            <div t-if="company.secondary_layout == 'ambiance' " t-attf-class="header o_company_#{company.id}_layout"
+                 t-att-style="report_header_style">
+                <div>
+                    <ul class="list-inline mb4">
+                        <li class="list-inline-item d-inline"><span t-field="company.name"/></li>
+                        <li class="list-inline-item d-inline"><span style="color:#33c4c0"
+                                                                    t-field="company.partner_id.name"/></li>
+                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
+                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
+                            : <span t-field="company.vat"/></li>
+                    </ul>
+                    <hr style="height:4px;border-width:0;color:gray;background-color:#33c4c0"/>
+                    <div class="row mb8">
+                        <div class="col-6">
+                            <img src="/jumponline_report/static/img/ambiance.png" style="height:60px" alt="Logo"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div t-if="company.secondary_layout == 'jump' " t-attf-class="header o_company_#{company.id}_layout"
+                 t-att-style="report_header_style">
+                <div>
+                    <ul class="list-inline mb4">
+                        <li class="list-inline-item d-inline"><b><span t-field="company.name"/></b></li>
+                        <li class="list-inline-item d-inline"><span t-field="company.partner_id.name"/></li>
+                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
+                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
+                            : <span t-field="company.vat"/></li>
+                    </ul>
+                    <hr style="height:4px;border-width:0;color:gray;background-color:#1c8b9e"/>
+                    <div class="row mb8">
+                        <div class="col-6">
+                            <img src="/jumponline_report/static/img/jump.png" style="height:60px" alt="Logo"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Boxed layout footer -->
+        <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout" position="attributes">
+            <attribute name="t-if">not company.secondary_layout</attribute>
+        </div>
+
+        <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout" position="after">
+            <div t-if="company.secondary_layout == 'ambiance'"
+                 t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
+                <div class="text-center">
+                    <ul class="list-inline">
+                        <li t-if="company.phone" class="list-inline-item"><span class="o_force_ltr"
+                                                                                t-field="company.phone"/></li>
+                        <li t-if="company.email" class="list-inline-item"><span t-field="company.email"/></li>
+                        <li t-if="company.website" class="list-inline-item"><span t-field="company.website"/></li>
+                        <li t-if="company.vat" class="list-inline-item"><t
+                                t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+                    </ul>
+                    <div t-field="company.report_footer"/>
+                    <div t-if="report_type == 'pdf'">
+                        Page: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+
+            <div t-if="company.secondary_layout == 'jump'"
+                 t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
+                <div class="text-center">
+                    <ul class="list-inline">
+                        <li t-if="company.phone" class="list-inline-item"><span class="o_force_ltr"
+                                                                                t-field="company.phone"/></li>
+                        <li t-if="company.email" class="list-inline-item"><span t-field="company.email"/></li>
+                        <li t-if="company.website" class="list-inline-item"><span t-field="company.website"/></li>
+                        <li t-if="company.vat" class="list-inline-item"><t
+                                t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+                    </ul>
+                    <div t-field="company.report_footer"/>
+                    <div t-if="report_type == 'pdf'">
+                        Page: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Clean layout template-->
+    <template id="clean_external_layout_inherited" inherit_id="web.external_layout_clean">
+        <!-- header -->
+
+        <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
+            <attribute name="t-if">not company.secondary_layout</attribute>
+        </div>
+
+        <div t-attf-class="header o_company_#{company.id}_layout" position="after">
+            <div t-if="company.secondary_layout == 'ambiance' " t-attf-class="header o_company_#{company.id}_layout"
+                 t-att-style="report_header_style">
+                <div>
+                    <ul class="list-inline mb4">
+                        <li class="list-inline-item d-inline"><span t-field="company.name"/></li>
+                        <li class="list-inline-item d-inline"><span style="color:#33c4c0"
+                                                                    t-field="company.partner_id.name"/></li>
+                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
+                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
+                            : <span t-field="company.vat"/></li>
+                    </ul>
+                    <hr style="height:4px;border-width:0;color:gray;background-color:#33c4c0"/>
+                    <div class="row mb8">
+                        <div class="col-6">
+                            <img src="/jumponline_report/static/img/ambiance.png" style="height:60px" alt="Logo"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div t-if="company.secondary_layout == 'jump' " t-attf-class="header o_company_#{company.id}_layout"
+                 t-att-style="report_header_style">
+                <div>
+                    <ul class="list-inline mb4">
+                        <li class="list-inline-item d-inline"><b><span t-field="company.name"/></b></li>
+                        <li class="list-inline-item d-inline"><span t-field="company.partner_id.name"/></li>
+                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
+                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
+                            : <span t-field="company.vat"/></li>
+                    </ul>
+                    <hr style="height:4px;border-width:0;color:gray;background-color:#1c8b9e"/>
+                    <div class="row mb8">
+                        <div class="col-6">
+                            <img src="/jumponline_report/static/img/jump.png" style="height:60px" alt="Logo"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- footer -->
+        <div t-attf-class="footer o_clean_footer o_company_#{company.id}_layout" position="attributes">
+            <attribute name="t-if">not company.secondary_layout</attribute>
+        </div>
+
+        <div t-attf-class="footer o_clean_footer o_company_#{company.id}_layout" position="after">
+            <div t-if="company.secondary_layout == 'ambiance' "
+                 t-attf-class="footer o_clean_footer o_company_#{company.id}_layout">
+                <div class="row mt8">
+                    <div class="col-3">
+                        <span t-field="company.report_footer"/>
+                    </div>
+                    <div class="col-4 text-right">
+                        <span class="company_address" t-field="company.partner_id"
+                              t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
+                    </div>
+                    <div class="col-4">
+                        <h4 class="mt0 mb0 text-uppercase" t-field="company.report_header"/>
+                    </div>
+                    <div class="col-1">
+                        <ul t-if="report_type == 'pdf'" class="list-inline pagenumber float-right text-center">
+                            <li class="list-inline-item"><strong><span class="page"/></strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div t-if="company.secondary_layout == 'jump' "
+                 t-attf-class="footer o_clean_footer o_company_#{company.id}_layout">
+                <div class="row mt8">
+                    <div class="col-3">
+                        <span t-field="company.report_footer"/>
+                    </div>
+                    <div class="col-4 text-right">
+                        <span class="company_address" t-field="company.partner_id"
+                              t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
+                    </div>
+                    <div class="col-4">
+                        <h4 class="mt0 mb0 text-uppercase" t-field="company.report_header"/>
+                    </div>
+                    <div class="col-1">
+                        <ul t-if="report_type == 'pdf'" class="list-inline pagenumber float-right text-center">
+                            <li class="list-inline-item"><strong><span class="page"/></strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+    <!-- Standard layout template -->
+    <template id="standard_external_layout_inherited" inherit_id="web.external_layout_standard">
+        <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
+            <attribute name="t-if">not company.secondary_layout</attribute>
+        </div>
+
+        <div t-attf-class="header o_company_#{company.id}_layout" position="after">
+            <div t-if="company.secondary_layout == 'ambiance' " t-attf-class="header o_company_#{company.id}_layout"
+                 t-att-style="report_header_style">
+                <div>
+                    <ul class="list-inline mb4">
+                        <li class="list-inline-item d-inline"><span t-field="company.name"/></li>
+                        <li class="list-inline-item d-inline"><span style="color:#33c4c0"
+                                                                    t-field="company.partner_id.name"/></li>
+                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
+                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
+                            : <span t-field="company.vat"/></li>
+                    </ul>
+                    <hr style="height:4px;border-width:0;color:gray;background-color:#33c4c0"/>
+                    <div class="row mb8">
+                        <div class="col-6">
+                            <img src="/jumponline_report/static/img/ambiance.png" style="height:60px" alt="Logo"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div t-if="company.secondary_layout == 'jump' " t-attf-class="header o_company_#{company.id}_layout"
+                 t-att-style="report_header_style">
+                <div>
+                    <ul class="list-inline mb4">
+                        <li class="list-inline-item d-inline"><b><span t-field="company.name"/></b></li>
+                        <li class="list-inline-item d-inline"><span t-field="company.partner_id.name"/></li>
+                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
+                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
+                            : <span t-field="company.vat"/></li>
+                    </ul>
+                    <hr style="height:4px;border-width:0;color:gray;background-color:#1c8b9e"/>
+                    <div class="row mb8">
+                        <div class="col-6">
+                            <img src="/jumponline_report/static/img/jump.png" style="height:60px" alt="Logo"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout" position="attributes">
+            <attribute name="t-if">not company.secondary_layout</attribute>
+        </div>
+
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout" position="after">
+            <div t-if="company.secondary_layout == 'ambiance'"
+                 t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+                <div class="text-center" style="border-top: 1px solid black;">
+                    <ul class="list-inline mb4">
+                        <!-- using the list-inline-item class from bootstrap causes weird behaviours in pdf report
+                             adding d-inline class fixes the problem-->
+                        <li t-if="company.phone" class="list-inline-item d-inline"><span class="o_force_ltr"
+                                                                                         t-field="company.phone"/></li>
+                        <li t-if="company.email" class="list-inline-item d-inline"><span t-field="company.email"/></li>
+                        <li t-if="company.website" class="list-inline-item d-inline"><span
+                                t-field="company.website"/></li>
+                        <li t-if="company.vat" class="list-inline-item d-inline"><t
+                                t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+                    </ul>
+
+                    <div name="financial_infos">
+                        <span t-field="company.report_footer"/>
+                    </div>
+
+                    <div t-if="report_type == 'pdf'" class="text-muted">
+                        Page: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+
+            <div t-if="company.secondary_layout == 'jump'"
+                 t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+                <div class="text-center" style="border-top: 1px solid black;">
+                    <ul class="list-inline mb4">
+                        <!-- using the list-inline-item class from bootstrap causes weird behaviours in pdf report
+                             adding d-inline class fixes the problem-->
+                        <li t-if="company.phone" class="list-inline-item d-inline"><span class="o_force_ltr"
+                                                                                         t-field="company.phone"/></li>
+                        <li t-if="company.email" class="list-inline-item d-inline"><span t-field="company.email"/></li>
+                        <li t-if="company.website" class="list-inline-item d-inline"><span
+                                t-field="company.website"/></li>
+                        <li t-if="company.vat" class="list-inline-item d-inline"><t
+                                t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+                    </ul>
+
+                    <div name="financial_infos">
+                        <span t-field="company.report_footer"/>
+                    </div>
+
+                    <div t-if="report_type == 'pdf'" class="text-muted">
+                        Page: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+    <!-- Background layout template -->
+    <template id="background_external_layout_inherited" inherit_id="web.external_layout_background">
+        <div t-attf-class="o_company_#{company.id}_layout header" position="attributes">
+            <attribute name="t-if">not company.secondary_layout</attribute>
+        </div>
+
+        <div t-attf-class="o_company_#{company.id}_layout header" position="after">
+            <div t-if="company.secondary_layout == 'ambiance' " t-attf-class="header o_company_#{company.id}_layout"
+                 t-att-style="report_header_style">
+                <div>
+                    <ul class="list-inline mb4">
+                        <li class="list-inline-item d-inline"><span t-field="company.name"/></li>
+                        <li class="list-inline-item d-inline"><span style="color:#33c4c0"
+                                                                    t-field="company.partner_id.name"/></li>
+                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
+                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
+                            : <span t-field="company.vat"/></li>
+                    </ul>
+                    <hr style="height:4px;border-width:0;color:gray;background-color:#33c4c0"/>
+                    <div class="row mb8">
+                        <div class="col-6">
+                            <img src="/jumponline_report/static/img/ambiance.png" style="height:60px" alt="Logo"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div t-if="company.secondary_layout == 'jump' " t-attf-class="header o_company_#{company.id}_layout"
+                 t-att-style="report_header_style">
+                <div>
+                    <ul class="list-inline mb4">
+                        <li class="list-inline-item d-inline"><b><span t-field="company.name"/></b></li>
+                        <li class="list-inline-item d-inline"><span t-field="company.partner_id.name"/></li>
+                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
+                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
+                            : <span t-field="company.vat"/></li>
+                    </ul>
+                    <hr style="height:4px;border-width:0;color:gray;background-color:#1c8b9e"/>
+                    <div class="row mb8">
+                        <div class="col-6">
+                            <img src="/jumponline_report/static/img/jump.png" style="height:60px" alt="Logo"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- footer -->
+        <div t-attf-class="o_company_#{company.id}_layout footer o_background_footer" position="attributes">
+            <attribute name="t-if">not company.secondary_layout</attribute>
+        </div>
+
+        <div t-attf-class="o_company_#{company.id}_layout footer o_background_footer" position="after">
+            <div t-if="company.secondary_layout == 'ambiance'"
+                 t-attf-class="o_company_#{company.id}_layout footer o_background_footer">
+                <div class="text-center">
+                    <ul class="list-inline">
+                        <li t-if="company.phone" class="list-inline-item"><i class="fa fa-phone" role="img"
+                                                                             aria-label="Phone" title="Phone"/> <span
+                                class="o_force_ltr" t-field="company.phone"/></li>
+                        <li t-if="company.email" class="list-inline-item"><i class="fa fa-at" role="img"
+                                                                             aria-label="Email" title="Email"/> <span
+                                t-field="company.email"/></li>
+                        <li t-if="company.website" class="list-inline-item"><i class="fa fa-globe" role="img"
+                                                                               aria-label="Website"
+                                                                               title="Website"/> <span
+                                t-field="company.website"/></li>
+                        <li t-if="company.vat" class="list-inline-item"><i class="fa fa-building-o" role="img"
+                                                                           aria-label="Fiscal number"/><t
+                                t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+                    </ul>
+                    <div t-field="company.report_footer"/>
+                    <div t-if="report_type == 'pdf'" class="text-muted">
+                        Page:
+                        <span class="page"/>
+                        of
+                        <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+
+            <div t-if="company.secondary_layout == 'jump'"
+                 t-attf-class="o_company_#{company.id}_layout footer o_background_footer">
+                <div class="text-center">
+                    <ul class="list-inline">
+                        <li t-if="company.phone" class="list-inline-item"><i class="fa fa-phone" role="img"
+                                                                             aria-label="Phone" title="Phone"/> <span
+                                class="o_force_ltr" t-field="company.phone"/></li>
+                        <li t-if="company.email" class="list-inline-item"><i class="fa fa-at" role="img"
+                                                                             aria-label="Email" title="Email"/> <span
+                                t-field="company.email"/></li>
+                        <li t-if="company.website" class="list-inline-item"><i class="fa fa-globe" role="img"
+                                                                               aria-label="Website"
+                                                                               title="Website"/> <span
+                                t-field="company.website"/></li>
+                        <li t-if="company.vat" class="list-inline-item"><i class="fa fa-building-o" role="img"
+                                                                           aria-label="Fiscal number"/><t
+                                t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+                    </ul>
+                    <div t-field="company.report_footer"/>
+                    <div t-if="report_type == 'pdf'" class="text-muted">
+                        Page:
+                        <span class="page"/>
+                        of
+                        <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+    <template id="web.external_layout">
+        <t t-if="not o" t-set="o" t-value="doc"/>
+        <t t-if="not company">
+            Multicompany
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+        <t t-if="o.partner_id.report_layout_id" t-call="{{o.partner_id.report_layout_id.view_id.key}}"><t t-raw="0"/></t>
+        <t t-else="else" t-call="web.external_layout_standard"><t t-raw="0"/></t>
+    </template>
+
+</odoo>

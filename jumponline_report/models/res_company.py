@@ -15,7 +15,7 @@ class ResCompany(models.Model):
         [("Lato", "Lato"), ("Roboto", "Roboto"), ("Open_Sans", "Open Sans"), ("Montserrat", "Montserrat"),
          ("Oswald", "Oswald"), ("Raleway", "Raleway")], default="Lato")
 
-    report_header_ambiance = fields.Text(string='Company Tagline',
+    report_header_ambiance = fields.Text(string='Company Tagline Ambiance',
                                          help="Appears by default on the top right corner of your printed documents (report header).")
-    report_footer_ambiance = fields.Text(string='Report Footer', translate=True,
+    report_footer_ambiance = fields.Text(string='Report Footer Ambiance', translate=True,
                                          help="Footer text displayed at the bottom of all reports.")

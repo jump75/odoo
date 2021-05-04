@@ -6,9 +6,4 @@ from odoo import models, fields, api
 class StockPicking(models.Model):
     _inherit = "stock.picking"
 
-    selected_layout = fields.Selection(related='company_id.secondary_layout', store=True, readonly=False)
-
-    @api.onchange('partner_id')
-    def set_default_selected_layout(self):
-        if self.partner_id:
-            self.selected_layout = self.partner_id.second_layout
+    selected_layout = fields.Selection(related='sale_id.selected_layout', readonly=False, store=True)

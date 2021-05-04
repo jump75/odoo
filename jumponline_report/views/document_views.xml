@@ -8,6 +8,54 @@
             <field name="report_layout_id" position="after">
                 <field name="secondary_layout" widget="radio"/>
             </field>
+
+            <!--  logo for ambiance -->
+            <xpath expr="//field[@name='logo']" position="attributes">
+                <attribute name="attrs">{'invisible': [('secondary_layout', '=', 'ambiance')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='logo']" position="after">
+                <field name="logo_ambiance" string="Logo Ambiance" widget="image" attrs="{'invisible': [('secondary_layout', '=', 'jump')]}"/>
+            </xpath>
+
+            <!--  primary color for ambiance -->
+            <xpath expr="//field[@name='primary_color']" position="attributes">
+                <attribute name="attrs">{'invisible': [('secondary_layout', '=', 'ambiance')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='secondary_color']" position="attributes">
+                <attribute name="attrs">{'invisible': [('secondary_layout', '=', 'ambiance')]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='primary_color']" position="after">
+                <field name="primary_color_ambiance" widget="color"
+                       attrs="{'invisible': [('secondary_layout', '=', 'jump')]}"/>
+                <field name="secondary_color_ambiance" widget="color"
+                       attrs="{'invisible': [('secondary_layout', '=', 'jump')]}"/>
+            </xpath>
+
+            <xpath expr="//field[@name='preview']" position="attributes">
+                <attribute name="attrs">{'invisible': [('secondary_layout', '=', 'ambiance')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='preview']" position="after">
+                <field name="preview_ambiance" widget="iframe_wrapper"
+                       attrs="{'invisible': [('secondary_layout', '=', 'jump')]}"/>
+            </xpath>
+
+            <!--report header for ambiance-->
+            <xpath expr="//field[@name='report_header']" position="attributes">
+                <attribute name="attrs">{'invisible': [('secondary_layout', '=', 'ambiance')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='report_header']" position="after">
+                <field name="report_header_ambiance" string="Company Tagline Ambiance" attrs="{'invisible': [('secondary_layout', '=', 'jump')]}"/>
+            </xpath>
+
+            <!--  report footer for ambiance -->
+            <xpath expr="//field[@name='report_footer']" position="attributes">
+                <attribute name="attrs">{'invisible': [('secondary_layout', '=', 'ambiance')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='report_footer']" position="after">
+                <field name="report_footer_ambiance" string="Report Footer Ambiance" attrs="{'invisible': [('secondary_layout', '=', 'jump')]}"/>
+            </xpath>
+
         </field>
     </record>
 </odoo>

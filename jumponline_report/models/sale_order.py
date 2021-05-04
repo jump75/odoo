@@ -18,4 +18,4 @@ class SaleOrder(models.Model):
     def onchange_partner_select_layout(self):
         self.ensure_one()
         if self.partner_id:
-            self.selected_layout = self.partner_id.second_layout
+            self.selected_layout = self.partner_id.selected_layout

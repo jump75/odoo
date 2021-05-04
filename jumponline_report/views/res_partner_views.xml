@@ -11,7 +11,7 @@
                     <group string="Template Layout">
                         <group>
                             <field name="report_layout_id" widget="selection"/>
-                            <field name="second_layout" force_save='True'/>
+                            <field name="selected_layout" force_save='True'/>
                         </group>
                     </group>
                 </xpath>

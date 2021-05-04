@@ -12,4 +12,4 @@ class AccountMove(models.Model):
     def set_default_selected_layout(self):
         self.ensure_one()
         if self.partner_id:
-            self.selected_layout = self.partner_id.second_layout
+            self.selected_layout = self.partner_id.selected_layout

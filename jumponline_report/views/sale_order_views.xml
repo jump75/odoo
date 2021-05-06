@@ -8,8 +8,7 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='payment_term_id']" position="after">
-                    <field name="selected_layout" attrs="{'readonly': [('state', '!=', 'draft')]}"
-                           required="1"/>
+                    <field name="selected_layout" required="1"/>
                 </xpath>
             </field>
         </record>

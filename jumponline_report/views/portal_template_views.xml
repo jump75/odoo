@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_frontend_layout_extended" name="Frontend Layout Inherited" inherit_id="portal.frontend_layout">
+        <xpath expr="//nav[hasclass('navbar')][1]//div[hasclass('container')]" position="replace">
+            <div class="container">
+                <a href="/" class="navbar-brand logo">
+                    <t t-if="user_id and 'partner_id' in user_id and user_id.partner_id.selected_layout == 'ambiance'">
+                        <img t-attf-src="/web/image/res.company/#{res_company.id}/logo_ambiance"
+                             alt="${user.company_id.logo_ambiance}"/>
+                    </t>
+                    <t t-elif="user_id and 'partner_id' in user_id and user_id.partner_id.selected_layout == 'jump'">
+                        <img t-att-src="'/logo.png?company=%s' % res_company.id"
+                             t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+                    </t>
+                    <t t-elif="res_company.secondary_layout == 'ambiance'">
+                        <img t-attf-src="/web/image/res.company/#{res_company.id}/logo_ambiance"
+                             alt="${user.company_id.logo_ambiance}"/>
+                    </t>
+                    <t t-else="">
+                        <img t-att-src="'/logo.png?company=%s' % res_company.id"
+                             t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+                    </t>
+                </a>
+                <ul id="top_menu" class="nav navbar-nav ml-auto">
+                    <t t-call="portal.placeholder_user_sign_in">
+                        <t t-set="_item_class" t-value="'nav-item'"/>
+                        <t t-set="_link_class" t-value="'nav-link'"/>
+                    </t>
+                    <t t-call="portal.user_dropdown">
+                        <t t-set="_user_name" t-value="true"/>
+                        <t t-set="_item_class" t-value="'nav-item dropdown'"/>
+                        <t t-set="_link_class" t-value="'nav-link'"/>
+                        <t t-set="_dropdown_menu_class" t-value="'dropdown-menu-right'"/>
+                    </t>
+                </ul>
+            </div>
+        </xpath>
+    </template>
+</odoo>

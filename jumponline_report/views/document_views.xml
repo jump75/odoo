@@ -45,7 +45,7 @@
                 <attribute name="attrs">{'invisible': [('secondary_layout', '=', 'ambiance')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='report_header']" position="after">
-                <field name="report_header_ambiance" string="Company Tagline Ambiance" attrs="{'invisible': [('secondary_layout', '=', 'jump')]}"/>
+                <field name="report_header_ambiance" string="Tagline Ambiance" attrs="{'invisible': [('secondary_layout', '=', 'jump')]}"/>
             </xpath>
 
             <!--  report footer for ambiance -->
@@ -53,7 +53,7 @@
                 <attribute name="attrs">{'invisible': [('secondary_layout', '=', 'ambiance')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='report_footer']" position="after">
-                <field name="report_footer_ambiance" string="Report Footer Ambiance" attrs="{'invisible': [('secondary_layout', '=', 'jump')]}"/>
+                <field name="report_footer_ambiance" string="Footer Ambiance" attrs="{'invisible': [('secondary_layout', '=', 'jump')]}"/>
             </xpath>
 
         </field>

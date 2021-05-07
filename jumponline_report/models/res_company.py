@@ -5,7 +5,7 @@ from odoo import models, fields, api, tools, _
 class ResCompany(models.Model):
     _inherit = "res.company"
 
-    secondary_layout = fields.Selection([('ambiance', 'Ambiance Deco'), ('jump', 'Jump Online')], default='jump')
+    secondary_layout = fields.Selection([('jump', 'Jump Online'),('ambiance', 'Ambiance Deco')], default='jump')
 
     logo_ambiance = fields.Binary(string="Company Logo Ambiance")
     primary_color_ambiance = fields.Char()

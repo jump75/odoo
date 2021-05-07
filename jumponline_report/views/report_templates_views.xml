@@ -21,6 +21,7 @@
                         <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
                             : <span t-field="company.vat"/></li>
                     </ul>
+                    <span t-field="company.report_header_ambiance"/>
                     <hr style="height:4px;border-width:0;color:gray;background-color:#33c4c0"/>
                     <div class="row mb8">
                         <div class="col-6">
@@ -31,7 +32,7 @@
                 </div>
             </div>
 
-            <div t-if="selected_layout and selected_layout == 'jump'"
+            <div t-elif="selected_layout and selected_layout == 'jump'"
                  t-attf-class="header o_company_#{company.id}_layout"
                  t-att-style="report_header_style">
                 <div>
@@ -42,6 +43,7 @@
                         <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
                             : <span t-field="company.vat"/></li>
                     </ul>
+                    <span t-field="company.report_header"/>
                     <hr style="height:4px;border-width:0;color:gray;background-color:#1c8b9e"/>
                     <div class="row mb8">
                         <div class="col-6">
@@ -59,7 +61,7 @@
         </div>
 
         <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout" position="after">
-            <div t-if="company.secondary_layout == 'ambiance'"
+            <div t-if="selected_layout and selected_layout == 'ambiance'"
                  t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
                 <div class="text-center">
                     <ul class="list-inline">
@@ -70,14 +72,14 @@
                         <li t-if="company.vat" class="list-inline-item"><t
                                 t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
                     </ul>
-                    <div t-field="company.report_footer"/>
+                    <div t-field="company.report_footer_ambiance"/>
                     <div t-if="report_type == 'pdf'">
                         Page: <span class="page"/> / <span class="topage"/>
                     </div>
                 </div>
             </div>
 
-            <div t-if="company.secondary_layout == 'jump'"
+            <div t-if="selected_layout and selected_layout == 'jump'"
                  t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
                 <div class="text-center">
                     <ul class="list-inline">
@@ -118,6 +120,7 @@
                         <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
                             : <span t-field="company.vat"/></li>
                     </ul>
+                    <span t-field="company.report_header_ambiance"/>
                     <hr style="height:4px;border-width:0;color:gray;background-color:#33c4c0"/>
                     <div class="row mb8">
                         <div class="col-6">
@@ -139,6 +142,7 @@
                         <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
                             : <span t-field="company.vat"/></li>
                     </ul>
+                    <span t-field="company.report_header"/>
                     <hr style="height:4px;border-width:0;color:gray;background-color:#1c8b9e"/>
                     <div class="row mb8">
                         <div class="col-6">
@@ -156,11 +160,11 @@
         </div>
 
         <div t-attf-class="footer o_clean_footer o_company_#{company.id}_layout" position="after">
-            <div t-if="company.secondary_layout == 'ambiance' "
+            <div t-if="selected_layout and selected_layout == 'ambiance'"
                  t-attf-class="footer o_clean_footer o_company_#{company.id}_layout">
                 <div class="row mt8">
                     <div class="col-3">
-                        <span t-field="company.report_footer"/>
+                        <span t-field="company.report_footer_ambiance"/>
                     </div>
                     <div class="col-4 text-right">
                         <span class="company_address" t-field="company.partner_id"
@@ -177,7 +181,7 @@
                 </div>
             </div>
 
-            <div t-if="company.secondary_layout == 'jump' "
+            <div t-if="selected_layout and selected_layout == 'jump'"
                  t-attf-class="footer o_clean_footer o_company_#{company.id}_layout">
                 <div class="row mt8">
                     <div class="col-3">
@@ -220,6 +224,7 @@
                         <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
                             : <span t-field="company.vat"/></li>
                     </ul>
+                    <span t-field="company.report_header_ambiance"/>
                     <hr style="height:4px;border-width:0;color:gray;background-color:#33c4c0"/>
                     <div class="row mb8">
                         <div class="col-6">
@@ -241,6 +246,7 @@
                         <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
                             : <span t-field="company.vat"/></li>
                     </ul>
+                    <span t-field="company.report_header"/>
                     <hr style="height:4px;border-width:0;color:gray;background-color:#1c8b9e"/>
                     <div class="row mb8">
                         <div class="col-6">
@@ -258,7 +264,7 @@
         </div>
 
         <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout" position="after">
-            <div t-if="company.secondary_layout == 'ambiance'"
+            <div t-if="selected_layout and selected_layout == 'ambiance'"
                  t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
                 <div class="text-center" style="border-top: 1px solid black;">
                     <ul class="list-inline mb4">
@@ -274,7 +280,7 @@
                     </ul>
 
                     <div name="financial_infos">
-                        <span t-field="company.report_footer"/>
+                        <span t-field="company.report_footer_ambiance"/>
                     </div>
 
                     <div t-if="report_type == 'pdf'" class="text-muted">
@@ -283,7 +289,7 @@
                 </div>
             </div>
 
-            <div t-if="company.secondary_layout == 'jump'"
+            <div t-if="selected_layout and selected_layout == 'jump'"
                  t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
                 <div class="text-center" style="border-top: 1px solid black;">
                     <ul class="list-inline mb4">
@@ -330,6 +336,7 @@
                         <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
                             : <span t-field="company.vat"/></li>
                     </ul>
+                    <span t-field="company.report_header_ambiance"/>
                     <hr style="height:4px;border-width:0;color:gray;background-color:#33c4c0"/>
                     <div class="row mb8">
                         <div class="col-6">
@@ -351,6 +358,7 @@
                         <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
                             : <span t-field="company.vat"/></li>
                     </ul>
+                    <span t-field="company.report_header"/>
                     <hr style="height:4px;border-width:0;color:gray;background-color:#1c8b9e"/>
                     <div class="row mb8">
                         <div class="col-6">
@@ -369,7 +377,7 @@
         </div>
 
         <div t-attf-class="o_company_#{company.id}_layout footer o_background_footer" position="after">
-            <div t-if="company.secondary_layout == 'ambiance'"
+            <div t-if="selected_layout and selected_layout == 'ambiance'"
                  t-attf-class="o_company_#{company.id}_layout footer o_background_footer">
                 <div class="text-center">
                     <ul class="list-inline">
@@ -387,7 +395,7 @@
                                                                            aria-label="Fiscal number"/><t
                                 t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
                     </ul>
-                    <div t-field="company.report_footer"/>
+                    <div t-field="company.report_footer_ambiance"/>
                     <div t-if="report_type == 'pdf'" class="text-muted">
                         Page:
                         <span class="page"/>
@@ -397,7 +405,7 @@
                 </div>
             </div>
 
-            <div t-if="company.secondary_layout == 'jump'"
+            <div t-if="selected_layout and selected_layout == 'jump'"
                  t-attf-class="o_company_#{company.id}_layout footer o_background_footer">
                 <div class="text-center">
                     <ul class="list-inline">
@@ -428,38 +436,28 @@
 
     </template>
 
-    <template id="web.external_layout">
-        <t t-if="not o" t-set="o" t-value="doc"/>
-        <t t-if="not company">
-            Multicompany
-            <t t-if="company_id">
-                <t t-set="company" t-value="company_id"/>
+    <!-- External layout inherited -->
+    <template id="web_external_layout_inherited_jumponline" inherit_id="web.external_layout">
+        <xpath expr="//t[@t-if='not company']" position="after">
+            <t t-if="not selected_layout">
+                <t t-if="o and 'selected_layout' in o">
+                    <t t-set="selected_layout" t-value="o.selected_layout"/>
+                </t>
+                <t t-elif="o and 'partner_id' in o">
+                    <t t-set="selected_layout" t-value="o.partner_id.selected_layout"/>
+                </t>
+                <t t-else="">
+                    <t t-set="selected_layout" t-value="company.secondary_layout"/>
+                </t>
             </t>
-            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
-                <t t-set="company" t-value="o.company_id.sudo()"/>
-            </t>
-            <t t-else="else">
-                <t t-set="company" t-value="res_company"/>
-            </t>
-        </t>
+        </xpath>
 
-        <t t-if="not selected_layout">
-            <t t-if="o and 'selected_layout' in o">
-                <t t-set="selected_layout" t-value="o.selected_layout"/>
-            </t>
-            <t t-elif="o and 'partner_id' in o">
-                <t t-set="selected_layout" t-value="o.partner_id.selected_layout"/>
-            </t>
-            <t t-elif="o and 'company_id' in o">
-                <t t-set="selected_layout" t-value="company.secondary_layout"/>
-            </t>
-        </t>
-
-        <t t-if="o and 'partner_id' in o and o.partner_id.report_layout_id"
-           t-call="{{o.partner_id.report_layout_id.view_id.key}}"><t t-raw="0"/></t>
-        <t t-elif="company.external_report_layout_id" t-call="{{company.external_report_layout_id.key}}"><t
-                t-raw="0"/></t>
-        <t t-else="else" t-call="web.external_layout_standard"><t t-raw="0"/></t>
+        <xpath expr="//t[@t-if='company.external_report_layout_id']" position="replace">
+            <t t-if="o and 'partner_id' in o and o.partner_id.report_layout_id"
+               t-call="{{o.partner_id.report_layout_id.view_id.key}}"><t t-raw="0"/></t>
+            <t t-if="company.external_report_layout_id" t-call="{{company.external_report_layout_id.key}}"><t
+                    t-raw="0"/></t>
+        </xpath>
     </template>
 
 </odoo>

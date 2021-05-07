@@ -8,16 +8,15 @@ class BaseDocumentLayout(models.TransientModel):
 
     secondary_layout = fields.Selection(related='company_id.secondary_layout', readonly=False)
 
-    logo_ambiance = fields.Binary(related='company_id.logo_ambiance',store=True, readonly=False)
+    logo_ambiance = fields.Binary(related='company_id.logo_ambiance', store=True, readonly=False)
     preview_logo_ambiance = fields.Binary(related='logo_ambiance', string="Preview logo Ambiance")
     primary_color_ambiance = fields.Char(related='company_id.primary_color_ambiance', readonly=False)
     secondary_color_ambiance = fields.Char(related='company_id.secondary_color_ambiance', readonly=False)
-    # font_ambiance = fields.Selection(related='company_id.font_ambiance', readonly=False)
     report_header_ambiance = fields.Text(related='company_id.report_header_ambiance', readonly=False)
     report_footer_ambiance = fields.Text(related='company_id.report_footer_ambiance', readonly=False)
 
     @api.depends('report_layout_id', 'logo', 'font', 'primary_color', 'secondary_color', 'report_header',
-                 'report_footer', 'secondary_layout')
+                 'report_footer', 'secondary_layout', 'report_header_ambiance', 'report_footer_ambiance')
     def _compute_preview_ambiance(self):
         """ compute a qweb based preview to display on the wizard """
         styles = self._get_asset_style()

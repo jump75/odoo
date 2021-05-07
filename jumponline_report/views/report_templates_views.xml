@@ -440,10 +440,10 @@
     <template id="web_external_layout_inherited_jumponline" inherit_id="web.external_layout">
         <xpath expr="//t[@t-if='not company']" position="after">
             <t t-if="not selected_layout">
-                <t t-if="o and 'selected_layout' in o">
+                <t t-if="o and 'selected_layout' in o and o.selected_layout">
                     <t t-set="selected_layout" t-value="o.selected_layout"/>
                 </t>
-                <t t-elif="o and 'partner_id' in o">
+                <t t-elif="o and 'partner_id' in o and o.partner_id.selected_layout">
                     <t t-set="selected_layout" t-value="o.partner_id.selected_layout"/>
                 </t>
                 <t t-else="">

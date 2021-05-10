@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <template id="styles_company_report" inherit_id="web.styles_company_report">
+        <xpath expr="//t[@t-set='primary']" position="after">
+            <t t-if="company.secondary_layout == 'ambiance'">
+                <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
+            </t>
+        </xpath>
+        <xpath expr="//t[@t-set='secondary']" position="after">
+            <t t-if="company.secondary_layout == 'ambiance'">
+                <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
+            </t>
+        </xpath>
+    </template>
+
     <!-- Boxed layout template-->
     <template id="boxed_external_layout_inherited" inherit_id="web.external_layout_boxed">
         <!-- Boxed Layout Header -->

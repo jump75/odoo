@@ -23,7 +23,7 @@ class BaseDocumentLayout(models.TransientModel):
                                    strip_classes=False)
 
     @api.depends('report_layout_id', 'logo_ambiance', 'secondary_layout', 'report_header_ambiance',
-                 'report_footer_ambiance')
+                 'report_footer_ambiance', 'primary_color_ambiance', 'secondary_color_ambiance')
     def _compute_preview_ambiance(self):
         """ compute a qweb based preview to display on the wizard """
         styles = self._get_asset_style()

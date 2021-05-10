@@ -14,7 +14,7 @@
         </xpath>
     </template>
     <template id="boxed_layout_ambiance_style">
-        <style>
+        <style type="text/css">
             .o_report_layout_boxed #total strong {
                 color: <t t-esc="primary"/> !important;;
             }
@@ -116,17 +116,17 @@
     <!-- Boxed layout template-->
     <template id="boxed_external_layout_inherited" inherit_id="web.external_layout_boxed">
         <!-- Boxed Layout Header -->
-        <div t-attf-class="header o_company_#{company.id}_layout" position="before">
+        <xpath expr="//t[@t-raw='0']" position="before">
             <t t-if="selected_layout and selected_layout == 'ambiance'">
                 <t t-call="jumponline_report.boxed_layout_ambiance_style">
                     <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
                     <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
                 </t>
             </t>
-        </div>
+        </xpath>
 
         <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
-            <attribute name="t-if">not company.secondary_layout</attribute>
+            <attribute name="t-if">not selected_layout</attribute>
         </div>
 
         <div t-attf-class="header o_company_#{company.id}_layout" position="after">
@@ -178,7 +178,7 @@
 
         <!-- Boxed layout footer -->
         <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout" position="attributes">
-            <attribute name="t-if">not company.secondary_layout</attribute>
+            <attribute name="t-if">not selected_layout</attribute>
         </div>
 
         <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout" position="after">
@@ -223,16 +223,16 @@
     <!-- Clean layout template-->
     <template id="clean_external_layout_inherited" inherit_id="web.external_layout_clean">
         <!-- header -->
-        <div t-attf-class="header o_company_#{company.id}_layout" position="before">
+        <xpath expr="//t[@t-raw='0']" position="before">
             <t t-if="selected_layout and selected_layout == 'ambiance'">
                 <t t-call="jumponline_report.clean_layout_ambiance_style">
                     <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
                     <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
                 </t>
             </t>
-        </div>
+        </xpath>
         <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
-            <attribute name="t-if">not company.secondary_layout</attribute>
+            <attribute name="t-if">not selected_layout</attribute>
         </div>
 
         <div t-attf-class="header o_company_#{company.id}_layout" position="after">
@@ -284,7 +284,7 @@
 
         <!-- footer -->
         <div t-attf-class="footer o_clean_footer o_company_#{company.id}_layout" position="attributes">
-            <attribute name="t-if">not company.secondary_layout</attribute>
+            <attribute name="t-if">not selected_layout</attribute>
         </div>
 
         <div t-attf-class="footer o_clean_footer o_company_#{company.id}_layout" position="after">
@@ -335,17 +335,17 @@
 
     <!-- Standard layout template -->
     <template id="standard_external_layout_inherited" inherit_id="web.external_layout_standard">
-        <div t-attf-class="header o_company_#{company.id}_layout" position="before">
+        <xpath expr="//t[@t-raw='0']" position="before">
             <t t-if="selected_layout and selected_layout == 'ambiance'">
                 <t t-call="jumponline_report.standard_layout_ambiance_style">
                     <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
                     <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
                 </t>
             </t>
-        </div>
+        </xpath>
 
         <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
-            <attribute name="t-if">not company.secondary_layout</attribute>
+            <attribute name="t-if">not selected_layout</attribute>
         </div>
 
         <div t-attf-class="header o_company_#{company.id}_layout" position="after">
@@ -397,7 +397,7 @@
 
         <!-- footer -->
         <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout" position="attributes">
-            <attribute name="t-if">not company.secondary_layout</attribute>
+            <attribute name="t-if">not selected_layout</attribute>
         </div>
 
         <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout" position="after">
@@ -456,16 +456,16 @@
 
     <!-- Background layout template -->
     <template id="background_external_layout_inherited" inherit_id="web.external_layout_background">
-        <div t-attf-class="o_company_#{company.id}_layout header" position="before">
+        <xpath expr="//t[@t-raw='0']" position="before">
             <t t-if="selected_layout and selected_layout == 'ambiance'">
                 <t t-call="jumponline_report.background_layout_ambiance_style">
                     <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
                     <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
                 </t>
             </t>
-        </div>
+        </xpath>
         <div t-attf-class="o_company_#{company.id}_layout header" position="attributes">
-            <attribute name="t-if">not company.secondary_layout</attribute>
+            <attribute name="t-if">not selected_layout</attribute>
         </div>
 
         <div t-attf-class="o_company_#{company.id}_layout header" position="after">
@@ -518,7 +518,7 @@
 
         <!-- footer -->
         <div t-attf-class="o_company_#{company.id}_layout footer o_background_footer" position="attributes">
-            <attribute name="t-if">not company.secondary_layout</attribute>
+            <attribute name="t-if">not selected_layout</attribute>
         </div>
 
         <div t-attf-class="o_company_#{company.id}_layout footer o_background_footer" position="after">

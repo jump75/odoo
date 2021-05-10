@@ -13,10 +13,118 @@
             </t>
         </xpath>
     </template>
+    <template id="boxed_layout_ambiance_style">
+        <style>
+            .o_report_layout_boxed #total strong {
+                color: <t t-esc="primary"/> !important;;
+            }
+            .o_report_layout_boxed #informations strong {
+                color: <t t-esc="secondary"/> !important;
+            }
+            .o_report_layout_boxed h2 span {
+                color: <t t-esc="primary"/> !important;
+            }
+            .o_report_layout_boxed table thead tr th {
+                color: <t t-esc="secondary"/> !important;
+            }
+            .o_report_layout_boxed table tbody tr td.o_line_section td {
+                background-color: <t t-esc="primary"/> !important;
+            }
+            .o_report_layout_boxed table tbody tr td.is-subtotal, .o_report_layout_boxed table tbody tr td td.o_price_total {
+                background-color: <t t-esc="secondary"/> !important;
+            }
+            .row > div > table tr.o_total td, div#total table tr.o_total td {
+                background-color: <t t-esc="primary"/> !important;
+            }
+        </style>
+    </template>
+
+    <template id="clean_layout_ambiance_style">
+        <style>
+            .o_clean_footer {
+                border-top: 3px solid <t t-esc="secondary"/> !important;
+            }
+            .o_clean_footer h4 {
+                color: <t t-esc="secondary"/> !important;
+            }
+            .o_clean_footer .pagenumber {
+                border: 3px solid <t t-esc="primary"/> !important;
+                background-color: <t t-esc="secondary"/> !important";
+            }
+            .o_report_layout_clean h1, .o_report_layout_clean h2, .o_report_layout_clean h3 {
+                color: <t t-esc="primary"/> !important;
+            }
+            .o_report_layout_clean strong {
+                color: <t t-esc="secondary"/> !important;
+            }
+            .o_report_layout_clean table thead {
+                color: <t t-esc="secondary"/> !important;
+            }
+            .o_report_layout_clean table thead tr th {
+                border-top: 3px solid <t t-esc="secondary"/> !important" !important;
+            }
+            .o_report_layout_clean table tbody tr:last-child td {
+                border-bottom: 3px solid <t t-esc="secondary"/> !important;
+            }
+            .o_report_layout_clean #total strong {
+                color: <t t-esc="secondary"/> !important;
+            }
+ 
+        </style>
+    </template>
+
+    <template id="background_layout_ambiance_style">
+        <style>
+            .o_background_header h3 {
+                color: <t t-esc="primary"/> !important;
+            }
+            .o_background_footer ul li {
+                color: <t t-esc="secondary"/> !important;
+            }
+            .o_report_layout_background strong {
+                color: <t t-esc="secondary"/> !important;
+            }
+            .o_report_layout_background h2 {
+                color: <t t-esc="primary"/>!important;
+            }
+            .o_report_layout_background thead tr th {
+                color: <t t-esc="secondary"/>!important;
+            }
+            .row > div > table:first-child strong, div#total table:first-child strong, .row > div > table:last-child strong, div#total table:last-child strong, .row > div > table.o_subtotal strong, div#total table.o_subtotal strong, .row > div > table.o_total strong, div#total table.o_total strong {
+                color: <t t-esc="primary"/> !important;
+            }
+        </style>
+    </template>
+
+    <template id="standard_layout_ambiance_style">
+        <style>
+            .o_report_layout_standard h2 {
+                color: <t t-esc="primary"/> !important;
+            }
+            .o_report_layout_standard #informations strong {
+                color: <t t-esc="secondary"/> !important;
+            }
+            .o_report_layout_standard #total strong {
+                color: <t t-esc="primary"/> !important;
+            }
+            .o_report_layout_standard table thead {
+                color: <t t-esc="secondary"/> !important;
+            }
+        </style>
+    </template>
 
     <!-- Boxed layout template-->
     <template id="boxed_external_layout_inherited" inherit_id="web.external_layout_boxed">
         <!-- Boxed Layout Header -->
+        <div t-attf-class="header o_company_#{company.id}_layout" position="before">
+            <t t-if="selected_layout and selected_layout == 'ambiance'">
+                <t t-call="jumponline_report.boxed_layout_ambiance_style">
+                    <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
+                    <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
+                </t>
+            </t>
+        </div>
+
         <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
             <attribute name="t-if">not company.secondary_layout</attribute>
         </div>
@@ -115,7 +223,14 @@
     <!-- Clean layout template-->
     <template id="clean_external_layout_inherited" inherit_id="web.external_layout_clean">
         <!-- header -->
-
+        <div t-attf-class="header o_company_#{company.id}_layout" position="before">
+            <t t-if="selected_layout and selected_layout == 'ambiance'">
+                <t t-call="jumponline_report.clean_layout_ambiance_style">
+                    <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
+                    <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
+                </t>
+            </t>
+        </div>
         <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
             <attribute name="t-if">not company.secondary_layout</attribute>
         </div>
@@ -220,6 +335,15 @@
 
     <!-- Standard layout template -->
     <template id="standard_external_layout_inherited" inherit_id="web.external_layout_standard">
+        <div t-attf-class="header o_company_#{company.id}_layout" position="before">
+            <t t-if="selected_layout and selected_layout == 'ambiance'">
+                <t t-call="jumponline_report.standard_layout_ambiance_style">
+                    <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
+                    <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
+                </t>
+            </t>
+        </div>
+
         <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
             <attribute name="t-if">not company.secondary_layout</attribute>
         </div>
@@ -332,6 +456,14 @@
 
     <!-- Background layout template -->
     <template id="background_external_layout_inherited" inherit_id="web.external_layout_background">
+        <div t-attf-class="o_company_#{company.id}_layout header" position="before">
+            <t t-if="selected_layout and selected_layout == 'ambiance'">
+                <t t-call="jumponline_report.background_layout_ambiance_style">
+                    <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
+                    <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
+                </t>
+            </t>
+        </div>
         <div t-attf-class="o_company_#{company.id}_layout header" position="attributes">
             <attribute name="t-if">not company.secondary_layout</attribute>
         </div>
@@ -471,8 +603,15 @@
         </xpath>
 
         <xpath expr="//t[@t-if='company.external_report_layout_id']" position="replace">
-            <t t-elif="company.external_report_layout_id" t-call="{{company.external_report_layout_id.key}}"><t
-                    t-raw="0"/></t>
+            <t t-elif="company.external_report_layout_id" t-call="{{company.external_report_layout_id.key}}">
+                <t t-if="selected_layout and selected_layout == 'ambiance'">
+                    <t t-attf-call="{{company.external_report_layout_id.key}}_ambiance_style">
+                        <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
+                        <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
+                    </t>
+                </t>
+                <t t-raw="0"/>
+            </t>
         </xpath>
     </template>
 

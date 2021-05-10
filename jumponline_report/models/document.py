@@ -7,7 +7,6 @@ class BaseDocumentLayout(models.TransientModel):
     _inherit = "base.document.layout"
 
     secondary_layout = fields.Selection(related='company_id.secondary_layout', readonly=False)
-
     logo_ambiance = fields.Binary(related='company_id.logo_ambiance', store=True, readonly=False)
     preview_logo_ambiance = fields.Binary(related='logo_ambiance', string="Preview logo Ambiance")
     primary_color_ambiance = fields.Char(related='company_id.primary_color_ambiance', readonly=False)
@@ -31,8 +30,7 @@ class BaseDocumentLayout(models.TransientModel):
         for wizard in self:
             if wizard.report_layout_id:
                 preview_css = self._get_css_for_preview(styles, wizard.id)
-                ir_ui_view = wizard.env['ir.ui.view']
-                wizard.preview_ambiance = ir_ui_view._render_template('web.report_invoice_wizard_preview',
+                wizard.preview_ambiance = self.env['ir.ui.view']._render_template('web.report_invoice_wizard_preview',
                                                                       {'company': wizard, 'preview_css': preview_css})
             else:
                 wizard.preview_ambiance = False

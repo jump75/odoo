@@ -452,10 +452,13 @@
             </t>
         </xpath>
 
-        <xpath expr="//t[@t-if='company.external_report_layout_id']" position="replace">
+        <xpath expr="//t[@t-if='company.external_report_layout_id']" position="before">
             <t t-if="o and 'partner_id' in o and o.partner_id.report_layout_id"
                t-call="{{o.partner_id.report_layout_id.view_id.key}}"><t t-raw="0"/></t>
-            <t t-if="company.external_report_layout_id" t-call="{{company.external_report_layout_id.key}}"><t
+        </xpath>
+
+        <xpath expr="//t[@t-if='company.external_report_layout_id']" position="replace">
+            <t t-elif="company.external_report_layout_id" t-call="{{company.external_report_layout_id.key}}"><t
                     t-raw="0"/></t>
         </xpath>
     </template>

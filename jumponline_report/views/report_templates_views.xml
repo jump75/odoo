@@ -4,37 +4,38 @@
     <template id="styles_company_report" inherit_id="web.styles_company_report">
         <xpath expr="//t[@t-set='primary']" position="after">
             <t t-if="company.secondary_layout == 'ambiance'">
-                <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
+                <t t-set="primary" t-value="company.primary_color_ambiance or 'black'"/>
             </t>
         </xpath>
         <xpath expr="//t[@t-set='secondary']" position="after">
             <t t-if="company.secondary_layout == 'ambiance'">
-                <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
+                <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'"/>
             </t>
         </xpath>
     </template>
     <template id="boxed_layout_ambiance_style">
         <style type="text/css">
             .o_report_layout_boxed #total strong {
-                color: <t t-esc="primary"/> !important;;
+            color: <t t-esc="primary"/> !important;;
             }
             .o_report_layout_boxed #informations strong {
-                color: <t t-esc="secondary"/> !important;
+            color: <t t-esc="secondary"/> !important;
             }
             .o_report_layout_boxed h2 span {
-                color: <t t-esc="primary"/> !important;
+            color: <t t-esc="primary"/> !important;
             }
             .o_report_layout_boxed table thead tr th {
-                color: <t t-esc="secondary"/> !important;
+            color: <t t-esc="secondary"/> !important;
             }
             .o_report_layout_boxed table tbody tr td.o_line_section td {
-                background-color: <t t-esc="primary"/> !important;
+            background-color: <t t-esc="primary"/> !important;
             }
-            .o_report_layout_boxed table tbody tr td.is-subtotal, .o_report_layout_boxed table tbody tr td td.o_price_total {
-                background-color: <t t-esc="secondary"/> !important;
+            .o_report_layout_boxed table tbody tr td.is-subtotal, .o_report_layout_boxed table tbody tr td
+            td.o_price_total {
+            background-color: <t t-esc="secondary"/> !important;
             }
             .row > div > table tr.o_total td, div#total table tr.o_total td {
-                background-color: <t t-esc="primary"/> !important;
+            background-color: <t t-esc="primary"/> !important;
             }
         </style>
     </template>
@@ -42,56 +43,58 @@
     <template id="clean_layout_ambiance_style">
         <style>
             .o_clean_footer {
-                border-top: 3px solid <t t-esc="secondary"/> !important;
+            border-top: 3px solid <t t-esc="secondary"/> !important;
             }
             .o_clean_footer h4 {
-                color: <t t-esc="secondary"/> !important;
+            color: <t t-esc="secondary"/> !important;
             }
             .o_clean_footer .pagenumber {
-                border: 3px solid <t t-esc="primary"/> !important;
-                background-color: <t t-esc="secondary"/> !important";
+            border: 3px solid <t t-esc="primary"/> !important;
+            background-color: <t t-esc="secondary"/> !important";
             }
             .o_report_layout_clean h1, .o_report_layout_clean h2, .o_report_layout_clean h3 {
-                color: <t t-esc="primary"/> !important;
+            color: <t t-esc="primary"/> !important;
             }
             .o_report_layout_clean strong {
-                color: <t t-esc="secondary"/> !important;
+            color: <t t-esc="secondary"/> !important;
             }
             .o_report_layout_clean table thead {
-                color: <t t-esc="secondary"/> !important;
+            color: <t t-esc="secondary"/> !important;
             }
             .o_report_layout_clean table thead tr th {
-                border-top: 3px solid <t t-esc="secondary"/> !important" !important;
+            border-top: 3px solid <t t-esc="secondary"/> !important" !important;
             }
             .o_report_layout_clean table tbody tr:last-child td {
-                border-bottom: 3px solid <t t-esc="secondary"/> !important;
+            border-bottom: 3px solid <t t-esc="secondary"/> !important;
             }
             .o_report_layout_clean #total strong {
-                color: <t t-esc="secondary"/> !important;
+            color: <t t-esc="secondary"/> !important;
             }
- 
+
         </style>
     </template>
 
     <template id="background_layout_ambiance_style">
         <style>
             .o_background_header h3 {
-                color: <t t-esc="primary"/> !important;
+            color: <t t-esc="primary"/> !important;
             }
             .o_background_footer ul li {
-                color: <t t-esc="secondary"/> !important;
+            color: <t t-esc="secondary"/> !important;
             }
             .o_report_layout_background strong {
-                color: <t t-esc="secondary"/> !important;
+            color: <t t-esc="secondary"/> !important;
             }
             .o_report_layout_background h2 {
-                color: <t t-esc="primary"/>!important;
+            color: <t t-esc="primary"/>!important;
             }
             .o_report_layout_background thead tr th {
-                color: <t t-esc="secondary"/>!important;
+            color: <t t-esc="secondary"/>!important;
             }
-            .row > div > table:first-child strong, div#total table:first-child strong, .row > div > table:last-child strong, div#total table:last-child strong, .row > div > table.o_subtotal strong, div#total table.o_subtotal strong, .row > div > table.o_total strong, div#total table.o_total strong {
-                color: <t t-esc="primary"/> !important;
+            .row > div > table:first-child strong, div#total table:first-child strong, .row > div > table:last-child
+            strong, div#total table:last-child strong, .row > div > table.o_subtotal strong, div#total table.o_subtotal
+            strong, .row > div > table.o_total strong, div#total table.o_total strong {
+            color: <t t-esc="primary"/> !important;
             }
         </style>
     </template>
@@ -99,16 +102,16 @@
     <template id="standard_layout_ambiance_style">
         <style>
             .o_report_layout_standard h2 {
-                color: <t t-esc="primary"/> !important;
+            color: <t t-esc="primary"/> !important;
             }
             .o_report_layout_standard #informations strong {
-                color: <t t-esc="secondary"/> !important;
+            color: <t t-esc="secondary"/> !important;
             }
             .o_report_layout_standard #total strong {
-                color: <t t-esc="primary"/> !important;
+            color: <t t-esc="primary"/> !important;
             }
             .o_report_layout_standard table thead {
-                color: <t t-esc="secondary"/> !important;
+            color: <t t-esc="secondary"/> !important;
             }
         </style>
     </template>
@@ -119,61 +122,39 @@
         <xpath expr="//t[@t-raw='0']" position="before">
             <t t-if="selected_layout and selected_layout == 'ambiance'">
                 <t t-call="jumponline_report.boxed_layout_ambiance_style">
-                    <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
-                    <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
+                    <t t-set="primary" t-value="company.primary_color_ambiance or 'black'"/>
+                    <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'"/>
                 </t>
             </t>
         </xpath>
 
-        <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
-            <attribute name="t-if">not selected_layout</attribute>
-        </div>
+        <img t-if="company.logo" position="replace">
+            <img t-if="selected_layout and selected_layout == 'ambiance' and company.logo_ambiance"
+                 t-att-src="image_data_uri(company.logo_ambiance)" alt="Logo"/>
+            <img t-if="selected_layout and not selected_layout == 'ambiance' and company.logo"
+                 t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+        </img>
 
-        <div t-attf-class="header o_company_#{company.id}_layout" position="after">
-            <div t-if="selected_layout and selected_layout == 'ambiance'"
-                 t-attf-class="header o_company_#{company.id}_layout"
-                 t-att-style="report_header_style">
-                <div>
-                    <ul class="list-inline mb4">
-                        <li class="list-inline-item d-inline"><span t-field="company.name"/></li>
-                        <li class="list-inline-item d-inline"><span style="color:#33c4c0"
-                                                                    t-field="company.partner_id.name"/></li>
-                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
-                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
-                            : <span t-field="company.vat"/></li>
-                    </ul>
-                    <span t-field="company.report_header_ambiance"/>
-                    <hr style="height:4px;border-width:0;color:gray;background-color:#33c4c0"/>
-                    <div class="row mb8">
-                        <div class="col-6">
-                            <img t-if="company.logo_ambiance" t-att-src="image_data_uri(company.logo_ambiance)"
-                                 style="height:60px" alt="Logo"/>
-                        </div>
+        <div class="col-6 text-right mb4" position="replace">
+            <t t-if="selected_layout and selected_layout == 'ambiance'">
+                <div class="col-6 text-right mb4">
+                    <h4 class="mt0" t-field="company.report_header_ambiance"/>
+                    <div name="company_address" class="float-right mb4">
+                        <span t-field="company.partner_id.name" style="color:#33c4c0"/>
+                        <span class="company_address" t-field="company.partner_id"
+                              t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
                     </div>
                 </div>
-            </div>
-
-            <div t-elif="selected_layout and selected_layout == 'jump'"
-                 t-attf-class="header o_company_#{company.id}_layout"
-                 t-att-style="report_header_style">
-                <div>
-                    <ul class="list-inline mb4">
-                        <li class="list-inline-item d-inline"><b><span t-field="company.name"/></b></li>
-                        <li class="list-inline-item d-inline"><span t-field="company.partner_id.name"/></li>
-                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
-                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
-                            : <span t-field="company.vat"/></li>
-                    </ul>
-                    <span t-field="company.report_header"/>
-                    <hr style="height:4px;border-width:0;color:gray;background-color:#1c8b9e"/>
-                    <div class="row mb8">
-                        <div class="col-6">
-                            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)"
-                                 style="height:60px" alt="Logo"/>
-                        </div>
+            </t>
+            <t t-else="">
+                <div class="col-6 text-right mb4">
+                    <h4 class="mt0" t-field="company.report_header"/>
+                    <div name="company_address" class="float-right mb4">
+                        <span class="company_address" t-field="company.partner_id"
+                              t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
                     </div>
                 </div>
-            </div>
+            </t>
         </div>
 
         <!-- Boxed layout footer -->
@@ -226,60 +207,47 @@
         <xpath expr="//t[@t-raw='0']" position="before">
             <t t-if="selected_layout and selected_layout == 'ambiance'">
                 <t t-call="jumponline_report.clean_layout_ambiance_style">
-                    <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
-                    <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
+                    <t t-set="primary" t-value="company.primary_color_ambiance or 'black'"/>
+                    <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'"/>
                 </t>
             </t>
         </xpath>
-        <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
-            <attribute name="t-if">not selected_layout</attribute>
-        </div>
 
-        <div t-attf-class="header o_company_#{company.id}_layout" position="after">
-            <div t-if="selected_layout and selected_layout == 'ambiance'"
-                 t-attf-class="header o_company_#{company.id}_layout"
-                 t-att-style="report_header_style">
-                <div>
-                    <ul class="list-inline mb4">
-                        <li class="list-inline-item d-inline"><span t-field="company.name"/></li>
-                        <li class="list-inline-item d-inline"><span style="color:#33c4c0"
-                                                                    t-field="company.partner_id.name"/></li>
-                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
-                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
-                            : <span t-field="company.vat"/></li>
-                    </ul>
-                    <span t-field="company.report_header_ambiance"/>
-                    <hr style="height:4px;border-width:0;color:gray;background-color:#33c4c0"/>
-                    <div class="row mb8">
-                        <div class="col-6">
-                            <img t-if="company.logo_ambiance" t-att-src="image_data_uri(company.logo_ambiance)"
-                                 style="height:60px" alt="Logo"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <img t-if="company.logo" position="replace">
+            <img t-if="selected_layout and selected_layout == 'ambiance' and company.logo_ambiance"
+                 t-att-src="image_data_uri(company.logo_ambiance)" alt="Logo"/>
+            <img t-if="selected_layout and not selected_layout == 'ambiance' and company.logo"
+                 t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+        </img>
 
-            <div t-if="selected_layout and selected_layout == 'jump'"
-                 t-attf-class="header o_company_#{company.id}_layout"
-                 t-att-style="report_header_style">
-                <div>
-                    <ul class="list-inline mb4">
-                        <li class="list-inline-item d-inline"><b><span t-field="company.name"/></b></li>
-                        <li class="list-inline-item d-inline"><span t-field="company.partner_id.name"/></li>
-                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
-                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
-                            : <span t-field="company.vat"/></li>
+        <div class="col-5 offset-1" position="replace">
+            <t t-if="selected_layout and selected_layout == 'ambiance'">
+                <div class="col-5 offset-1" name="company_address">
+                    <ul class="list-unstyled">
+                        <li t-if="selected_layout and selected_layout == 'ambiance'">
+                            <span t-field="company.partner_id.name" style="color:#33c4c0"/>
+                        </li>
+                        <strong><li t-if="company.name"><span t-field="company.name"/></li></strong>
+                        <li t-if="company.vat"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span
+                                t-field="company.vat"/></li>
+                        <li t-if="company.phone">Tel: <span class="o_force_ltr" t-field="company.phone"/></li>
+                        <li t-if="company.email"><span t-field="company.email"/></li>
+                        <li t-if="company.website"><span t-field="company.website"/></li>
                     </ul>
-                    <span t-field="company.report_header"/>
-                    <hr style="height:4px;border-width:0;color:gray;background-color:#1c8b9e"/>
-                    <div class="row mb8">
-                        <div class="col-6">
-                            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)"
-                                 style="height:60px" alt="Logo"/>
-                        </div>
-                    </div>
                 </div>
-            </div>
+            </t>
+            <t t-else="">
+                <div class="col-5 offset-1" name="company_address">
+                    <ul class="list-unstyled">
+                        <strong><li t-if="company.name"><span t-field="company.name"/></li></strong>
+                        <li t-if="company.vat"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span
+                                t-field="company.vat"/></li>
+                        <li t-if="company.phone">Tel: <span class="o_force_ltr" t-field="company.phone"/></li>
+                        <li t-if="company.email"><span t-field="company.email"/></li>
+                        <li t-if="company.website"><span t-field="company.website"/></li>
+                    </ul>
+                </div>
+            </t>
         </div>
 
         <!-- footer -->
@@ -299,7 +267,7 @@
                               t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
                     </div>
                     <div class="col-4">
-                        <h4 class="mt0 mb0 text-uppercase" t-field="company.report_header"/>
+                        <h4 class="mt0 mb0 text-uppercase" t-field="company.report_header_ambiance"/>
                     </div>
                     <div class="col-1">
                         <ul t-if="report_type == 'pdf'" class="list-inline pagenumber float-right text-center">
@@ -338,60 +306,40 @@
         <xpath expr="//t[@t-raw='0']" position="before">
             <t t-if="selected_layout and selected_layout == 'ambiance'">
                 <t t-call="jumponline_report.standard_layout_ambiance_style">
-                    <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
-                    <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
+                    <t t-set="primary" t-value="company.primary_color_ambiance or 'black'"/>
+                    <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'"/>
                 </t>
             </t>
         </xpath>
 
-        <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
-            <attribute name="t-if">not selected_layout</attribute>
+        <div class="row" position="replace">
+            <div class="row">
+                <t t-if="selected_layout and selected_layout == 'ambiance'">
+                    <div class="col-3 mb4">
+                        <img t-if="company.logo_ambiance"
+                             t-att-src="image_data_uri(company.logo_ambiance)" style="max-height: 45px;" alt="Logo"/>
+                    </div>
+                    <div class="col-9 text-right" style="margin-top:22px;" t-field="company.report_header_ambiance"
+                         name="moto"/>
+                </t>
+                <t t-else="">
+                    <div class="col-3 mb4">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;"
+                             alt="Logo"/>
+                    </div>
+                    <div class="col-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
+                </t>
+            </div>
         </div>
 
-        <div t-attf-class="header o_company_#{company.id}_layout" position="after">
-            <div t-if="selected_layout and selected_layout == 'ambiance'"
-                 t-attf-class="header o_company_#{company.id}_layout"
-                 t-att-style="report_header_style">
-                <div>
-                    <ul class="list-inline mb4">
-                        <li class="list-inline-item d-inline"><span t-field="company.name"/></li>
-                        <li class="list-inline-item d-inline"><span style="color:#33c4c0"
-                                                                    t-field="company.partner_id.name"/></li>
-                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
-                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
-                            : <span t-field="company.vat"/></li>
-                    </ul>
-                    <span t-field="company.report_header_ambiance"/>
-                    <hr style="height:4px;border-width:0;color:gray;background-color:#33c4c0"/>
-                    <div class="row mb8">
-                        <div class="col-6">
-                            <img t-if="company.logo_ambiance" t-att-src="image_data_uri(company.logo_ambiance)"
-                                 style="height:60px" alt="Logo"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div t-if="selected_layout and selected_layout == 'jump'"
-                 t-attf-class="header o_company_#{company.id}_layout"
-                 t-att-style="report_header_style">
-                <div>
-                    <ul class="list-inline mb4">
-                        <li class="list-inline-item d-inline"><b><span t-field="company.name"/></b></li>
-                        <li class="list-inline-item d-inline"><span t-field="company.partner_id.name"/></li>
-                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
-                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
-                            : <span t-field="company.vat"/></li>
-                    </ul>
-                    <span t-field="company.report_header"/>
-                    <hr style="height:4px;border-width:0;color:gray;background-color:#1c8b9e"/>
-                    <div class="row mb8">
-                        <div class="col-6">
-                            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)"
-                                 style="height:60px" alt="Logo"/>
-                        </div>
-                    </div>
-                </div>
+        <div name="company_address" position="replace">
+            <div class="col-6" name="company_address">
+                <t t-if="selected_layout and selected_layout == 'ambiance'">
+                    <div t-field="company.partner_id.name" style="color:#33c4c0"/>
+                </t>
+                <div t-field="company.partner_id"
+                     t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'
+                />
             </div>
         </div>
 
@@ -459,61 +407,43 @@
         <xpath expr="//t[@t-raw='0']" position="before">
             <t t-if="selected_layout and selected_layout == 'ambiance'">
                 <t t-call="jumponline_report.background_layout_ambiance_style">
-                    <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
-                    <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
+                    <t t-set="primary" t-value="company.primary_color_ambiance or 'black'"/>
+                    <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'"/>
                 </t>
             </t>
         </xpath>
-        <div t-attf-class="o_company_#{company.id}_layout header" position="attributes">
-            <attribute name="t-if">not selected_layout</attribute>
+
+        <img t-if="company.logo" position="replace">
+            <img t-if="selected_layout and selected_layout == 'ambiance' and company.logo_ambiance"
+                 t-att-src="image_data_uri(company.logo_ambiance)" class="float-left" alt="Logo"/>
+            <img t-if="selected_layout and not selected_layout == 'ambiance' and company.logo"
+                 t-att-src="image_data_uri(company.logo)" class="float-left" alt="Logo"/>
+        </img>
+
+        <div class="float-right" position="replace">
+            <div class="float-right">
+                <t t-if="selected_layout and selected_layout == 'ambiance'">
+                    <h3 class="mt0 text-right" t-field="company.report_header_ambiance"/>
+                </t>
+                <t t-else="">
+                    <h3 class="mt0 text-right" t-field="company.report_header"/>
+                </t>
+            </div>
         </div>
 
-        <div t-attf-class="o_company_#{company.id}_layout header" position="after">
-            <div t-if="selected_layout and selected_layout == 'ambiance'"
-                 t-attf-class="header o_company_#{company.id}_layout"
-                 t-att-style="report_header_style">
+        <div class="float-left company_address" position="replace">
+            <div class="float-left company_address">
                 <div>
-                    <ul class="list-inline mb4">
-                        <li class="list-inline-item d-inline"><span t-field="company.name"/></li>
-                        <li class="list-inline-item d-inline"><span style="color:#33c4c0"
-                                                                    t-field="company.partner_id.name"/></li>
-                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
-                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
-                            : <span t-field="company.vat"/></li>
-                    </ul>
-                    <span t-field="company.report_header_ambiance"/>
-                    <hr style="height:4px;border-width:0;color:gray;background-color:#33c4c0"/>
-                    <div class="row mb8">
-                        <div class="col-6">
-                            <img t-if="company.logo_ambiance" t-att-src="image_data_uri(company.logo_ambiance)"
-                                 style="height:60px" alt="Logo"/>
-                        </div>
-                    </div>
+                    <t t-if="selected_layout and selected_layout == 'ambiance'">
+                        <strong t-field="company.partner_id.name" style="color:#33c4c0"/>
+                    </t>
+                    <t t-else="">
+                        <strong t-field="company.partner_id.name"/>
+                    </t>
                 </div>
+                <span t-field="company.partner_id"
+                      t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
             </div>
-
-            <div t-if="selected_layout and selected_layout == 'jump'"
-                 t-attf-class="header o_company_#{company.id}_layout"
-                 t-att-style="report_header_style">
-                <div>
-                    <ul class="list-inline mb4">
-                        <li class="list-inline-item d-inline"><b><span t-field="company.name"/></b></li>
-                        <li class="list-inline-item d-inline"><span t-field="company.partner_id.name"/></li>
-                        <li class="list-inline-item d-inline"><span t-field="company.website"/></li>
-                        <li class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>
-                            : <span t-field="company.vat"/></li>
-                    </ul>
-                    <span t-field="company.report_header"/>
-                    <hr style="height:4px;border-width:0;color:gray;background-color:#1c8b9e"/>
-                    <div class="row mb8">
-                        <div class="col-6">
-                            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)"
-                                 style="height:60px" alt="Logo"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
         <!-- footer -->
@@ -606,8 +536,8 @@
             <t t-elif="company.external_report_layout_id" t-call="{{company.external_report_layout_id.key}}">
                 <t t-if="selected_layout and selected_layout == 'ambiance'">
                     <t t-attf-call="{{company.external_report_layout_id.key}}_ambiance_style">
-                        <t t-set="primary" t-value="company.primary_color_ambiance or 'black'" />
-                        <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'" />
+                        <t t-set="primary" t-value="company.primary_color_ambiance or 'black'"/>
+                        <t t-set="secondary" t-value="company.secondary_color_ambiance or 'black'"/>
                     </t>
                 </t>
                 <t t-raw="0"/>

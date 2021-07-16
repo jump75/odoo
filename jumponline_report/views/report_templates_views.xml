@@ -140,7 +140,8 @@
                 <div class="col-6 text-right mb4">
                     <h4 class="mt0" t-field="company.report_header_ambiance"/>
                     <div name="company_address" class="float-right mb4">
-                        <span t-field="company.partner_id.name" style="color:#33c4c0"/>
+                        <span t-field="company.partner_id.name"/><br/>
+                        <span style="color:#33c4c0">Ambiance Déco</span>
                         <span class="company_address" t-field="company.partner_id"
                               t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
                     </div>
@@ -167,10 +168,9 @@
                  t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
                 <div class="text-center">
                     <ul class="list-inline">
-                        <li t-if="company.phone" class="list-inline-item"><span class="o_force_ltr"
-                                                                                t-field="company.phone"/></li>
-                        <li t-if="company.email" class="list-inline-item"><span t-field="company.email"/></li>
-                        <li t-if="company.website" class="list-inline-item"><span t-field="company.website"/></li>
+                        <li class="list-inline-item"><span class="o_force_ltr">+41 79 644 15 37</span></li>
+                        <li class="list-inline-item"><span>info@a-deco.ch</span></li>
+                        <li class="list-inline-item"><span>http://www.a-deco.ch/</span></li>
                         <li t-if="company.vat" class="list-inline-item"><t
                                 t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
                     </ul>
@@ -224,15 +224,15 @@
             <t t-if="selected_layout and selected_layout == 'ambiance'">
                 <div class="col-5 offset-1" name="company_address">
                     <ul class="list-unstyled">
-                        <li t-if="selected_layout and selected_layout == 'ambiance'">
-                            <span t-field="company.partner_id.name" style="color:#33c4c0"/>
-                        </li>
                         <strong><li t-if="company.name"><span t-field="company.name"/></li></strong>
+                        <li t-if="selected_layout and selected_layout == 'ambiance'">
+                            <b style="color:#33c4c0">Ambiance Déco</b>
+                        </li>
                         <li t-if="company.vat"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span
                                 t-field="company.vat"/></li>
-                        <li t-if="company.phone">Tel: <span class="o_force_ltr" t-field="company.phone"/></li>
-                        <li t-if="company.email"><span t-field="company.email"/></li>
-                        <li t-if="company.website"><span t-field="company.website"/></li>
+                        <li>Tel: <span class="o_force_ltr">+41 79 644 15 37</span></li>
+                        <li><span>info@a-deco.ch</span></li>
+                        <li><span>http://www.a-deco.ch/</span></li>
                     </ul>
                 </div>
             </t>
@@ -335,7 +335,11 @@
         <div name="company_address" position="replace">
             <div class="col-6" name="company_address">
                 <t t-if="selected_layout and selected_layout == 'ambiance'">
-                    <div t-field="company.partner_id.name" style="color:#33c4c0"/>
+                    <span t-field="company.partner_id.name"/><br/>
+                    <span style="color:#33c4c0">Ambiance Déco</span>
+                </t>
+                <t t-else="">
+                    <b>Jump Online Services Sàrl</b><br/>
                 </t>
                 <div t-field="company.partner_id"
                      t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'
@@ -355,11 +359,9 @@
                     <ul class="list-inline mb4">
                         <!-- using the list-inline-item class from bootstrap causes weird behaviours in pdf report
                              adding d-inline class fixes the problem-->
-                        <li t-if="company.phone" class="list-inline-item d-inline"><span class="o_force_ltr"
-                                                                                         t-field="company.phone"/></li>
-                        <li t-if="company.email" class="list-inline-item d-inline"><span t-field="company.email"/></li>
-                        <li t-if="company.website" class="list-inline-item d-inline"><span
-                                t-field="company.website"/></li>
+                        <li class="list-inline-item d-inline"><span class="o_force_ltr">+41 79 644 15 37</span></li>
+                        <li class="list-inline-item d-inline"><span>info@a-deco.ch</span></li>
+                        <li class="list-inline-item d-inline"><span>http://www.a-deco.ch/</span></li>
                         <li t-if="company.vat" class="list-inline-item d-inline"><t
                                 t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
                     </ul>
@@ -435,7 +437,8 @@
             <div class="float-left company_address">
                 <div>
                     <t t-if="selected_layout and selected_layout == 'ambiance'">
-                        <strong t-field="company.partner_id.name" style="color:#33c4c0"/>
+                        <strong t-field="company.partner_id.name"/><br/>
+                        <strong style="color:#33c4c0">Ambiance Déco</strong>
                     </t>
                     <t t-else="">
                         <strong t-field="company.partner_id.name"/>
@@ -456,16 +459,14 @@
                  t-attf-class="o_company_#{company.id}_layout footer o_background_footer">
                 <div class="text-center">
                     <ul class="list-inline">
-                        <li t-if="company.phone" class="list-inline-item"><i class="fa fa-phone" role="img"
+                        <li class="list-inline-item"><i class="fa fa-phone" role="img"
                                                                              aria-label="Phone" title="Phone"/> <span
-                                class="o_force_ltr" t-field="company.phone"/></li>
-                        <li t-if="company.email" class="list-inline-item"><i class="fa fa-at" role="img"
-                                                                             aria-label="Email" title="Email"/> <span
-                                t-field="company.email"/></li>
-                        <li t-if="company.website" class="list-inline-item"><i class="fa fa-globe" role="img"
+                                class="o_force_ltr">+41 79 644 15 37</span></li>
+                        <li class="list-inline-item"><i class="fa fa-at" role="img"
+                                                        aria-label="Email" title="Email"/> <span>info@a-deco.ch</span></li>
+                        <li class="list-inline-item"><i class="fa fa-globe" role="img"
                                                                                aria-label="Website"
-                                                                               title="Website"/> <span
-                                t-field="company.website"/></li>
+                                                        title="Website"/> <span>http://www.a-deco.ch/</span></li>
                         <li t-if="company.vat" class="list-inline-item"><i class="fa fa-building-o" role="img"
                                                                            aria-label="Fiscal number"/><t
                                 t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
